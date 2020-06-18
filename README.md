@@ -3,7 +3,7 @@
 A tiny version of Golang's [WaitGroup](https://golang.org/pkg/sync/#WaitGroup) for Deno with promises and zero dependencies outside of `std`.
 
 ```ts
-import { WaitGroup } from "https://raw.githubusercontent.com/jpwilliams/waitgroup-deno/v1.0.0/mod.ts";
+import { WaitGroup } from "https://deno.land/x/waitgroup/mod.ts";
 
 const wg = new WaitGroup()
 
