@@ -5,27 +5,26 @@ A tiny version of Golang's [WaitGroup](https://golang.org/pkg/sync/#WaitGroup) f
 ```ts
 import { WaitGroup } from "https://deno.land/x/waitgroup/mod.ts";
 
-const wg = new WaitGroup()
+const wg = new WaitGroup();
 
 const urls = [
-	'http://www.golang.org/',
-	'http://www.google.com/',
-	'http://www.somestupidname.com/'
-]
+  "http://www.golang.org/",
+  "http://www.google.com/",
+  "http://www.somestupidname.com/",
+];
 
 urls.forEach((url) => {
-	// Increment the WaitGroup counter
-	wg.add(1)
-	// Fetch the URL
-	fetch(url).then(() => {
-		// Decrement the counter when the GET is complete
-		wg.done()
-	})
-})
+  // Increment the WaitGroup counter
+  wg.add(1);
+  // Fetch the URL
+  fetch(url).then(() => {
+    // Decrement the counter when the GET is complete
+    wg.done();
+  });
+});
 
 // Wait for all HTTP fetches to complete
-await wg.wait()
-
+await wg.wait();
 ```
 
 For most applications, using built-ins like `Promise.all` will work perfectly, but sometimes this can be a really nice abstraction if the promises you have to keep track of are pretty spread out.
